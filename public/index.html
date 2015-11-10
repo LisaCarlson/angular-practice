@@ -10,8 +10,10 @@
       .controller('HomeController', function(){
 
       })
-      .controller('GuitarController', function(){
-
+      .controller('GuitarController', function($scope, $http){
+        $http.get('/api/vi/guitars').then(function (response) {
+          $scope.guitars = response.data;
+        })
       })
       .config(function($routeProvider, $locationProvider) {
         $routeProvider
