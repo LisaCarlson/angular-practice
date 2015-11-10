@@ -1,0 +1,15 @@
+<div class="jumbotron">
+  <p>{{zenData}}</p>
+</div>
+<div ng-repeat="message in messages">
+  <h4>{{message.name}} says {{message.content}}</h4>
+</div>
+<div class="col-md-4">
+  <form>
+    <label>Name</label>
+    <input class="form-control" name='name' ng-model='name' type='text'>
+    <label>Message</label>
+    <input class="form-control" name='message' ng-model='message' type='text'>
+    <button class="btn btn-default" ng-click="submit()">Submit</button>
+  </form>
+</div>

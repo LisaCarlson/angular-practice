@@ -1,42 +1,14 @@
 <!DOCTYPE html>
-<html ng-app="guitars">
+<html ng-app="MyApp">
 <head>
   <title></title>
   <link rel="stylesheet" href="http://bootswatch.com/journal/bootstrap.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-route.min.js"></script>
-  <script type="text/javascript">
-    angular.module('guitars', ['ngRoute'])
-      .controller('HomeController', function(){
-
-      })
-      .controller('GuitarController', function($scope, $http){
-        $http.get('/api/vi/guitars').then(function (response) {
-          $scope.guitars = response.data;
-        })
-      })
-      .config(function($routeProvider, $locationProvider) {
-        $routeProvider
-          .when('/', {
-            templateUrl: '/partials/home.html',
-            controller: 'HomeController'
-          })
-          .when('/guitars', {
-            templateUrl: '/partials/guitars.html',
-            controller: 'GuitarController'
-          })
-          .when('/page-not-found', {
-            templateUrl: '/partials/error.html'
-          })
-          .otherwise({
-            redirectTo: '/page-not-found'
-          });
-        $locationProvider.html5Mode(true);
-      })
-  </script>
+  <script type="text/javascript" src="app.js"></script>
   <base href="/">
 </head>
-<body>
+<body ng-controller="HomeController">
   <nav class="navbar navbar-inverse">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -44,7 +16,8 @@
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="/guitars">Guitars</a></li>
+          <li><a href='/movies'>Movies</a></li>
+          <li><a href='/chat'>Chat</a></li>
         </ul>
       </div>
     </div>
