@@ -1,1 +1,21 @@
-<h1>Movie Search</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="page-header">
+      <h1 class="text-center">Movie Search <small>Enter a Movie By Title</small></h1>
+    </div>
+    <div class="col-md-6 col-md-offset-3">
+      <input class="form-control" type="text" ng-model="title" placeholder="Movie Title...">
+      <button ng-click="search()" class="btn btn-info top-margin">Search <i class="glyphicon glyphicon-search"></i></button>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-9 col-md-offset-1">
+    <div class="col-md-6 top-margin" ng-repeat="movie in movies">
+      <a href="#" class="thumbnail">
+        <p class="text-center">{{movie.Title}}</p>
+        <p class="text-center">{{movie.Year}}</p>
+      </a>
+    </div>
+  </div>
+</div>

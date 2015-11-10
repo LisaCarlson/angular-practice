@@ -1,8 +1,9 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
+.top-margin {
+  margin-top: 20px;
 }
 
-a {
-  color: #00B7FF;
+.thumbnail {
+  background-color: #e74944;
+  color: #fff;
 }
