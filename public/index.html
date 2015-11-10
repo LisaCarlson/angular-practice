@@ -23,6 +23,12 @@
             templateUrl: '/partials/guitars.html',
             controller: 'GuitarController'
           })
+          .when('/page-not-found', {
+            templateUrl: '/partials/error.html'
+          })
+          .otherwise({
+            redirectTo: '/page-not-found'
+          });
         $locationProvider.html5Mode(true);
       })
   </script>
