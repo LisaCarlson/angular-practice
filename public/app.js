@@ -23,13 +23,17 @@
           $scope.message='';
         }
       })
-      .controller("MovieController", function ($scope, $http) {
+      .controller("MovieController", function ($scope, $http, $routeParams) {
         $scope.search = function() {
           $http.get('http://www.omdbapi.com/?s=' + $scope.title.toLowerCase() + '&r=json').then(function (response) {
             $scope.movies = response.data.Search;
-            console.log($scope.movies)
+
           });
         }
+        $http.get('http://www.omdbapi.com/?i=' + $routeParams.movieId + '&r=json').then(function (response) {
+          $scope.movieDetails = response.data;
+        });
+
       })
       .config(function($routeProvider, $locationProvider) {
         $routeProvider
@@ -39,6 +43,10 @@
           })
           .when('/movies', {
             templateUrl: '/partials/movies.html',
+            controller: 'MovieController'
+          })
+          .when('/:movieId/show', {
+            templateUrl: '/partials/movieDetails.html',
             controller: 'MovieController'
           })
           .when('/chat', {

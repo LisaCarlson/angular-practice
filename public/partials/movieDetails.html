@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="page-header">
+      <h1 class="text-center">Movie Search <small>Enter a Movie By Title</small></h1>
+    </div>
+    <div class="col-md-6 col-md-offset-3">
+      <input class="form-control" type="text" ng-model="title" placeholder="Movie Title...">
+      <button ng-click="search()" class="btn btn-info top-margin">Search <i class="glyphicon glyphicon-search"></i></button>
+    </div>
+  </div>
+</div>
+<div class="row top-margin">
+  <div class="col-md-6">
+    <img "show-poster" class="pull-right" ng-src='{{movieDetails.Poster}}'>
+  </div>
+  <div class="col-md-6">
+    <h1>{{movieDetails.Title}}</h1>
+    <h2><span class="text-info">Director:</span> {{movieDetails.Director}}</h2>
+    <h2><span class="text-primary">Release:</span> {{movieDetails.Released}}</h2>
+    <h2><span class="text-success">Runtime:</span> {{movieDetails.Runtime}}</h2>
+    <h2><span class="text-danger">Rated:</span> {{movieDetails.Rated}}</h2>
+  </div>
+</div>
