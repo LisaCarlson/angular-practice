@@ -23,12 +23,14 @@
           $scope.message='';
         }
       })
-      .controller("MovieController", function ($scope, $http, $routeParams) {
+      .controller("MovieController", function ($scope, $http, $routeParams, $location) {
         $scope.search = function() {
           $http.get('http://www.omdbapi.com/?s=' + $scope.title.toLowerCase() + '&r=json').then(function (response) {
             $scope.movies = response.data.Search;
-
+            console.log($scope.movies);
           });
+          
+          $location.url('/movies/'+$scope.title);
         }
         $http.get('http://www.omdbapi.com/?i=' + $routeParams.movieId + '&r=json').then(function (response) {
           $scope.movieDetails = response.data;
@@ -42,6 +44,10 @@
             controller: 'HomeController'
           })
           .when('/movies', {
+            templateUrl: '/partials/home.html',
+            controller: 'MovieController'
+          })
+          .when('/movies/:movie', {
             templateUrl: '/partials/movies.html',
             controller: 'MovieController'
           })

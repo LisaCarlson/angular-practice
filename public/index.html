@@ -24,7 +24,19 @@
       </div>
     </div>
   </nav>
-  <div class="container" ng-view>
+  <div class="row" ng-controller="MovieController">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="page-header">
+        <h1 class="text-center">Movie Search <small>Enter a Movie By Title</small></h1>
+      </div>
+      <div class="col-md-6 col-md-offset-3">
+        <input class="form-control" type="text" ng-model="title" placeholder="Movie Title...">
+        <button ng-click="search()" class="btn btn-info top-margin">Search <i class="glyphicon glyphicon-search"></i></button>
+      </div>
+    </div>
+    <div class="container" ng-view></div>
   </div>
+  
+  
 </body>
 </html>
