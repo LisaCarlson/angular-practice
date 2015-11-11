@@ -2,7 +2,7 @@
       .controller('HomeController', function($scope, $http) {
 
       })
-      .controller('ChatController', function ($scope, $http) {
+      .controller('ChatController', ['$scope', '$http', function ($scope, $http) {
         $http.get('https://api.github.com/zen').then(function(response){
           $scope.zenData = response.data;
         });
@@ -22,8 +22,8 @@
           $scope.name='';
           $scope.message='';
         }
-      })
-      .controller("MovieController", function ($scope, $http, $routeParams, $location) {
+      }])
+      .controller("MovieController", ['$scope', '$http', '$routeParams', '$location', function ($scope, $http, $routeParams, $location) {
         $scope.search = function() {
           $http.get('http://www.omdbapi.com/?s=' + $scope.title.toLowerCase() + '&r=json').then(function (response) {
             $scope.movies = response.data.Search;
@@ -36,8 +36,8 @@
           $scope.movieDetails = response.data;
         });
 
-      })
-      .config(function($routeProvider, $locationProvider) {
+      }])
+      .config(['$routeProvider','$locationProvider', function($routeProvider, $locationProvider) {
         $routeProvider
           .when('/', {
             templateUrl: '/partials/home.html',
@@ -66,4 +66,4 @@
             redirectTo: '/page-not-found'
           });
         $locationProvider.html5Mode(true);
-      })
+      }])
