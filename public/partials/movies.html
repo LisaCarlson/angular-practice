@@ -10,12 +10,14 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-md-9 col-md-offset-1">
-    <div class="col-md-6 top-margin" ng-repeat="movie in movies">
-      <a href="#" class="thumbnail">
-        <p class="text-center">{{movie.Title}}</p>
-        <p class="text-center">{{movie.Year}}</p>
-      </a>
+  <div class="col-md-4 top-margin" ng-repeat="movie in movies">
+    <div class="thumbnail">
+      <img ng-src="{{movie.Poster}}" alt="...">
+      <div class="caption">
+        <h3 class="text-center text-info">{{movie.Title}}</h3>
+        <h4 class="text-center">{{movie.Year}}</h4>
+        <p><a href="/{{movie.imdbID}}/show" class="btn btn-primary" role="button">Details</a>
+      </div>
     </div>
   </div>
 </div>

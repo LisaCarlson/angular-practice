@@ -3,7 +3,16 @@
   margin-top: 20px;
 }
 
-.thumbnail {
+/*.thumbnail {
   background-color: #e74944;
   color: #fff;
+}*/
+
+.thumbnail > img {
+  height: 400px;
+  width: 300px;
+}
+
+.thumbnail:hover {
+  animation: pulse 1s;
 }

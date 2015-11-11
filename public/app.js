@@ -27,6 +27,7 @@
         $scope.search = function() {
           $http.get('http://www.omdbapi.com/?s=' + $scope.title.toLowerCase() + '&r=json').then(function (response) {
             $scope.movies = response.data.Search;
+            console.log($scope.movies)
           });
         }
       })
